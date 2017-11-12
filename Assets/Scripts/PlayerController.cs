@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour 
+{
 	public float speed;
 
 	private Rigidbody rb;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
-		
+		 
 	}
 
 	void FixedUpdate ()
@@ -28,4 +28,11 @@ public class PlayerController : MonoBehaviour {
 		rb.AddForce (movement * speed);
 	}
 
+	void OnTriggerEnter(Collider other) 
+	{
+		if (other.gameObject.CompareTag ("Pick Up")) 
+		{
+			other.gameObject.SetActive (false);
+		}
 	}
+}
